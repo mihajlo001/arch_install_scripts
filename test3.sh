@@ -8,20 +8,16 @@ sgdisk -n 3:0:+25G -c 3:"root" -t 3:8300 /dev/sda
 sgdisk -N 4 -c 4:"home" -t 4:8300 /dev/sda
 
 echo "Please enter EFI paritition: (example /dev/sda1 or /dev/nvme0n1p1)"
-read EFI
-/dev/sda1
+read EFI=/dev/sda1
 
 echo "Please enter SWAP paritition: (example /dev/sda2)"
-read SWAP
-/dev/sda2
+read SWAP=/dev/sda2
 
 echo "Please enter Root(/) paritition: (example /dev/sda3)"
-read ROOT
-/dev/sda3 
+read ROOT=/dev/sda3 
 
 echo "Please enter Home paritition: (example /dev/sda4)"
-read HOME
-/dev/sda4 
+read HOME=/dev/sda4 
 
 echo "Please enter root password"
 read RPASSWORD
