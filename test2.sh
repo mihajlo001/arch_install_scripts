@@ -66,13 +66,12 @@ echo "-- Bootloader Installation  --"
 echo "--------------------------------------"
 bootctl install --path /mnt/boot
 echo "default arch.conf" >> /mnt/boot/loader/loader.conf
-cat <<EOF > /mnt/boot/loader/entries/arch.conf
-title Arch Linux
-linux /vmlinuz-linux
-initrd /initramfs-linux.img
-options root=PARTUUID=$(blkid –s PARTUUID –o value ${ROOT}) rw
-EOF
 
+echo "title Arch Linux" >> /mnt/boot/loader/entries/arch.conf
+echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
+echo "initrd /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
+
+echo "options root=PARTUUID=$(blkid -s PARTUUID -o value $ROOT) rw" >> /mnt/boot/loader/entries/arch.conf
 
 
 cat <<REALEND > /mnt/next.sh
