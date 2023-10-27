@@ -70,9 +70,8 @@ cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
+options root=PARTUUID=$(blkid –s PARTUUID –o value ${ROOT}) rw
 EOF
-
-echo "options root=PARTUUID=$(blkid –s PARTUUID –o value /dev/sda3) rw" >> /mnt/boot/loader/entries/arch.conf
 
 
 
