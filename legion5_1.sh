@@ -130,7 +130,8 @@ echo "-------------------------------------------------"
 echo "Display and Audio Drivers"
 echo "-------------------------------------------------"
 
-pacman -S xorg-server nvidia nvidia-utils lib32-nvidia-utils nvidia-settings nvidia-prime mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver --noconfirm --needed
+pacman -S xorg-server nvidia nvidia-utils lib32-nvidia-utils nvidia-settings nvidia-prime mesa lib32-mesa vulkan-intel lib32-vulkan-intel --noconfirm --needed
+# intel-media-driver
 
 systemctl enable NetworkManager
 
@@ -141,7 +142,7 @@ then
     systemctl enable gdm
 elif [[ $DESKTOP == '2' ]]
 then
-    pacman -S plasma sddm konsole dolphin firefox kate steam vlc qbittorrent libreoffice-still koko p7zip ark ntfs-3g bluez bluez-utils --noconfirm --needed
+    pacman -S plasma sddm konsole dolphin firefox kate steam vlc qbittorrent libreoffice-still koko p7zip ark ntfs-3g bluez bluez-utils wine-staging lutris --noconfirm --needed
     systemctl enable sddm
 elif [[ $DESKTOP == '3' ]]
 then
