@@ -89,6 +89,7 @@ echo "default arch.conf" >> /mnt/boot/loader/loader.conf
 
 echo "title Arch Linux" >> /mnt/boot/loader/entries/arch.conf
 echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
+echo "initrd /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
 echo "initrd /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
 
 echo "options root=PARTUUID=$(blkid -s PARTUUID -o value $ROOT) rw" >> /mnt/boot/loader/entries/arch.conf
@@ -111,11 +112,11 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
 hwclock --systohc
 
-echo "arch" > /etc/hostname
+echo "galvatron" > /etc/hostname
 cat <<EOF > /etc/hosts
 127.0.0.1	localhost
 ::1			localhost
-127.0.1.1	arch
+127.0.1.1	galvatron
 EOF
 
 echo "-------------------------------------------------"
