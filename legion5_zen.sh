@@ -130,7 +130,7 @@ echo "-------------------------------------------------"
 echo "Display and Audio Drivers"
 echo "-------------------------------------------------"
 
-pacman -S xorg-server nvidia nvidia-utils lib32-nvidia-utils nvidia-settings nvidia-prime mesa lib32-mesa vulkan-intel lib32-vulkan-intel --noconfirm --needed
+pacman -S xorg-server nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings nvidia-prime mesa lib32-mesa vulkan-intel lib32-vulkan-intel --noconfirm --needed
 # intel-media-driver
 
 systemctl enable NetworkManager
