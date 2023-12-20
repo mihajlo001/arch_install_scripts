@@ -1,27 +1,26 @@
 #!/usr/bin/env bash
 
+#for hard disk  >25GB
+
 sgdisk -Z /dev/vda
 
 sgdisk -n 1:0:+1G -c 1:"boot" -t 1:ef00 /dev/vda
-sgdisk -n 2:0:+16G -c 2:"swap" -t 2:8200 /dev/vda
-sgdisk -n 3:0:+40G -c 3:"root" -t 3:8300 /dev/vda
+sgdisk -n 2:0:+2G -c 2:"swap" -t 2:8200 /dev/vda
+sgdisk -n 3:0:+20G -c 3:"root" -t 3:8300 /dev/vda
 sgdisk -N 4 -c 4:"home" -t 4:8300 /dev/vda
 
-echo "Please enter EFI paritition: (example /dev/sda1 or /dev/nvme0n1p1)"
-read EFI
-/dev/vda1
+EFI=/dev/vda1
+echo "Boot partition is ${EFI}"
 
-echo "Please enter SWAP paritition: (example /dev/sda2)"
-read SWAP
-/dev/vda2
+SWAP=/dev/vda2
+echo "Swap partition is ${SWAP}"
 
-echo "Please enter Root(/) paritition: (example /dev/sda3)"
-read ROOT
-/dev/vda3
+ROOT=/dev/vda3 
+echo "Root partition is ${ROOT}"
 
-echo "Please enter Home paritition: (example /dev/sda4)"
-read HOME
-/dev/vda4
+HOME=/dev/vda4 
+echo "Home partition is ${HOME}"
+
 
 echo "Please enter root password"
 read RPASSWORD
