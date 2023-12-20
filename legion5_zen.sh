@@ -7,21 +7,17 @@ sgdisk -n 2:0:+16G -c 2:"swap" -t 2:8200 /dev/nvme0n1
 sgdisk -n 3:0:+40G -c 3:"root" -t 3:8300 /dev/nvme0n1
 sgdisk -N 4 -c 4:"home" -t 4:8300 /dev/nvme0n1
 
-echo "Please enter EFI paritition: (example /dev/sda1 or /dev/nvme0n1p1)"
-read EFI
-/dev/nvme0n1p1
+EFI=/dev/nvme0n1p1
+echo "Boot partition is ${EFI}"
 
-echo "Please enter SWAP paritition: (example /dev/sda2)"
-read SWAP
-/dev/nvme0n1p2
+SWAP=/dev/nvme0n1p2
+echo "Swap partition is ${SWAP}"
 
-echo "Please enter Root(/) paritition: (example /dev/sda3)"
-read ROOT
-/dev/nvme0n1p3 
+ROOT=/dev/nvme0n1p3 
+echo "Root partition is ${ROOT}"
 
-echo "Please enter Home paritition: (example /dev/sda4)"
-read HOME
-/dev/nvme0n1p4 
+HOME=/dev/nvme0n1p4 
+echo "Home partition is ${HOME}"
 
 echo "Please enter root password"
 read RPASSWORD
